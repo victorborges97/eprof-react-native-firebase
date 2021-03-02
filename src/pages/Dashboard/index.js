@@ -29,8 +29,8 @@ export default function Login({navigation}) {
                 </Text>
                 <View style={styles.containerAluno__Header_horario}>
                     {
-                        item.atendimento.map(ite => (
-                            <Text style={styles.containerAluno__Header_horario_texto}>{ite.dia+`, `+ite.hora}</Text>
+                        item.atendimento.map((ite, idx) => (
+                            <Text key={idx} style={styles.containerAluno__Header_horario_texto}>{ite.dia+`, `+ite.hora}</Text>
                         ))
                     }
                 </View>

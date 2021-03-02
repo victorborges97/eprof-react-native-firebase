@@ -38,6 +38,11 @@ export default function DadosAluno({ route }) {
   const [isActive, setIsActive] = useState(false);
   const [aulaspsemana, setAulaspsemana] = useState("")
 
+  //Apoio
+  const [psemana, setPsemana] = useState("")
+
+  let moldeHorario = {"dia":".","hora":"00:00","data": "", "preco": valor, "duracao": duracao, "pagamento": "Pedente", "cancelado": "Não"}
+
   useEffect(() => {
     const { Item } = route.params;
     setIsActive(Item.isActive)
@@ -56,39 +61,26 @@ export default function DadosAluno({ route }) {
     setAulaspsemana(Item.qtdePSemana)
   }, [route.params.Item])
 
-  const setAulasPSemana = (qt) => {
-    let total = Number(qt)
-    if(qt > aulaspsemana) {
-      let arrayTest = {"dia":".","hora":"00:00","data": "", "preco": valor, "duracao": duracao, "pagamento": "Pedente", "cancelado": "Não"}
-      if(atendimento.length !== 0) {
-        for (var i = 0; i < total; i++) {
-          setAtendimento([
-            ...atendimento,
-            arrayTest
-          ]);
-        }
-        setAulaspsemana(total.toString())
-        return
-      } else {
-        for (var i = 0; i < total; i++) {
-          setAtendimento([
-            ...atendimento,
-            arrayTest
-          ]);
-        }
-        setAulaspsemana(total.toString())
-        return
-      }
-    } else if(qt < aulaspsemana) {
-      setAtendimento([
-        atendimento.pop()
-      ])
-      // setAulaspsemana(total.toString())
-      return
+  function addArray() {
+    let oldArray = [...atendimento];
+    let total = Number(psemana)
+    for (var i = 0; i < total; i++) {
+      oldArray.push(moldeHorario);
     }
+    setAulaspsemana(oldArray.length.toString());
+    setAtendimento(oldArray);;
   }
 
-  console.warn(atendimento)
+  function removerArray(idx) {
+    //To keep the original:
+    let oldArray = [...atendimento];
+
+    //This modifies the atendimento.
+    oldArray.splice(idx, 1);
+
+    setAulaspsemana(oldArray.length.toString())
+    setAtendimento(oldArray)
+  }
 
   return (
       <ContainerAluno>
@@ -178,31 +170,45 @@ export default function DadosAluno({ route }) {
             onChange={(itemValue, itemIndex) => setObs(itemValue)}
           />
 
-          <InputPadrao
-            label="Quantas aulas por semana"
-            value={aulaspsemana.toString()}
-            pickerItem={true}
-            corInput={colors.card__aluno_textoTitulo}
-            onChange={(itemValue, itemIndex) => setAulasPSemana(itemValue)}
-          >
-            <Picker.Item label="Selecione..." value="0" />
-            <Picker.Item label="1" value="1" />
-            <Picker.Item label="2" value="2" />
-            <Picker.Item label="3" value="3" />
-            <Picker.Item label="4" value="4" />
-            <Picker.Item label="5" value="5" />
-            <Picker.Item label="6" value="6" />
-            <Picker.Item label="7" value="7" />
-            <Picker.Item label="8" value="8" />
-          </InputPadrao>
+          <InputView justify={true}>
+            <InputPadrao
+              label="Quantas aulas por semana"
+              widthView={"82%"}
+              marginRight={"1%"}
+              value={psemana.toString()}
+              pickerItem={true}
+              corInput={colors.card__aluno_textoTitulo}
+              onChange={(itemValue, itemIndex) => {setPsemana(itemValue)}}
+            >
+              <Picker.Item label="Selecione..." value="0" />
+              <Picker.Item label="1" value="1" />
+              <Picker.Item label="2" value="2" />
+              <Picker.Item label="3" value="3" />
+              <Picker.Item label="4" value="4" />
+              <Picker.Item label="5" value="5" />
+              <Picker.Item label="6" value="6" />
+              <Picker.Item label="7" value="7" />
+              <Picker.Item label="8" value="8" />
+            </InputPadrao>
+
+            <InputPadrao 
+              widthView={"15%"}
+              marginLeft={"1%"}
+              iconBtn={true}
+              borderWidth={0}
+              onChange={(itemValue, itemIndex) => {addArray(), setPsemana("")}}
+            >
+              <IconsAwesome name="plus" color="#419B44" size={25} />
+            </InputPadrao>
+          </InputView>
 
           <Horario>
             {
-              atendimento.length !== 0 
+              atendimento
               && (
-                atendimento.map(item => {
+                atendimento.map((item, idx) => {
                   return (
-                    <InputView justify={true}>
+                    <InputView key={idx} justify={true}>
                       <InputPadrao 
                         label="Qual dia"
                         value={item.dia}
@@ -226,19 +232,40 @@ export default function DadosAluno({ route }) {
                         label="Hora"
                         value={item.hora}
                         autoCorrect={false}
-                        widthView={"40%"}
+                        widthView={"25%"}
                         marginLeft={"1%"}
                         keyboardType='numeric'
                         corInput={colors.card__aluno_textoTitulo}
                         // corBackground={colors.card__aluno_background}
                         onChange={(itemValue, itemIndex) => {}}
                       />
+                      <InputPadrao 
+                        widthView={"15%"}
+                        marginLeft={"1%"}
+                        iconBtn={true}
+                        borderWidth={0}
+                        corBorder="transparent"
+                        onChange={(itemValue, itemIndex) => {removerArray(idx)}}
+                      >
+                        <IconsAwesome name="minus-circle" color="#D84949" size={25} />
+                      </InputPadrao>
                     </InputView>
                   )}
                 )
               )
             }
+            {
+              atendimento.length === 0 && (
+                <InputPadrao 
+                  label="Sem Recursos adicionados"
+                  corInput={colors.card__aluno_textoTitulo}
+                  onChange={(itemValue, itemIndex) => {}}
+                />
+              )
+            }
           </Horario>
+
+
 
         </FormView>
 

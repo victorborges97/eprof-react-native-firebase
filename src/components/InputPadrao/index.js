@@ -1,8 +1,10 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+// import { Picker as Select } from '@react-native-picker/picker';
+import { Picker as Select } from "native-base";
 
 import masks from "../../utils/mascara"
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const InputPerfil = ({
   label,
@@ -21,6 +23,7 @@ const InputPerfil = ({
   multlines,
   pickerItem,
   children,
+  iconBtn,
   ...other
 }) => {
 
@@ -61,27 +64,44 @@ const InputPerfil = ({
 
   return (
     <View style={styles.Dados}>
-
-      <Text style={styles.Label}>{label}</Text>
+      {
+        label &&
+        <Text style={styles.Label}>{label}</Text>
+      }
 
       {
-        pickerItem ?
+        pickerItem &&
         (
-          <Picker
-            selectedValue={field ? masks[field](value) : value}
+          <Select
+            selectedValue={value}
             style={styles.input}
             onValueChange={onChange}>
             {
               children
             }
-          </Picker>
-        ) : (
+          </Select>
+        )
+      }
+
+      {
+        !pickerItem && !iconBtn && (
           <TextInput
             style={styles.input}
             value={field ? masks[field](value) : value}
             onChangeText={onChange}
             {...other}
           />
+        )
+      }
+
+      {
+        iconBtn && (
+          <TouchableOpacity
+            style={{padding: 10, borderRadius: 8}}
+            onPress={onChange}
+          >
+            {children}
+          </TouchableOpacity>
         )
       }
       

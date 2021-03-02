@@ -3,10 +3,10 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { Container } from "../../components/Background/styles"
 import { colors } from "../../../config.json"
 
-export const ContainerDashboard = styled(Container)`
-    /* flex: 1;
+export const ContainerDashboard = styled.SafeAreaView`
+    flex: 1;
     padding: 10px;
-    background-color: ${colors.background}; */
+    background-color: ${colors.background};
 `
 
 // export const NOME = styled.View``
