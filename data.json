@@ -5,11 +5,12 @@
             "nome": "Beatriz Cortes de Oliveira",
             "obs": "Tentando colocar um campo de obs para testar no app como vai ficar teste. sahsahashsahsahhsa",
             "atendimento": [
-                "Segunda-feira, 15:30",
-                "Terça-feira, 16:30"
+                {"dia":"Segunda-feira","hora":"15:30","data": "20/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"},
+                {"dia":"Terça-feira","hora":"16:30","data": "21/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"}
             ],
             "duracao": "60",
             "valor": 60.00, 
+            "qtdePSemana": "2",
             "nivelEscolar": "5º ano", 
             "idade": 18,
             "escola": "", 
@@ -23,11 +24,11 @@
             "nome": "Ezio Quintais Arouca",
             "obs": "Tentando colocar um campo de obs para testar no app como vai ficar teste. sahsahashsahsahhsa",
             "atendimento": [
-                "Segunda-feira, 15:30",
-                "Terça-feira, 16:30"
+            
             ],
             "duracao": "60",
             "valor": 60.00, 
+            "qtdePSemana": "2",
             "nivelEscolar": "5º ano", 
             "idade": 18,
             "escola": "", 
@@ -41,11 +42,12 @@
             "nome": "Albert Sacadura Moreno",
             "obs": "Tentando colocar um campo de obs para testar no app como vai ficar teste. sahsahashsahsahhsa",
             "atendimento": [
-                "Segunda-feira, 15:30",
-                "Terça-feira, 16:30"
+                {"dia":"Segunda-feira","hora":"15:30","data": "20/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"},
+                {"dia":"Terça-feira","hora":"16:30","data": "21/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"}
             ],
             "duracao": "60",
             "valor": 60.00, 
+            "qtdePSemana": "2",
             "nivelEscolar": "5º ano", 
             "idade": 18,
             "escola": "", 
@@ -59,11 +61,12 @@
             "nome": "Milan Godoi Frazão",
             "obs": "Tentando colocar um campo de obs para testar no app como vai ficar teste. sahsahashsahsahhsa",
             "atendimento": [
-                "Segunda-feira, 15:30",
-                "Terça-feira, 16:30"
+                {"dia":"Segunda-feira","hora":"15:30","data": "20/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"},
+                {"dia":"Terça-feira","hora":"16:30","data": "21/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"}
             ],
             "duracao": "60",
             "valor": 60.00, 
+            "qtdePSemana": "2",
             "nivelEscolar": "5º ano", 
             "idade": 18,
             "escola": "", 
@@ -77,11 +80,12 @@
             "nome": "Ezio Quintais Arouca",
             "obs": "Tentando colocar um campo de obs para testar no app como vai ficar teste. sahsahashsahsahhsa",
             "atendimento": [
-                "Segunda-feira, 15:30",
-                "Terça-feira, 16:30"
+                {"dia":"Segunda-feira","hora":"15:30","data": "20/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"},
+                {"dia":"Terça-feira","hora":"16:30","data": "21/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"}
             ],
             "duracao": "60",
             "valor": 60.00, 
+            "qtdePSemana": "2",
             "nivelEscolar": "5º ano", 
             "idade": 18,
             "escola": "", 
@@ -95,11 +99,12 @@
             "nome": "Albert Sacadura Moreno",
             "obs": "Tentando colocar um campo de obs para testar no app como vai ficar teste. sahsahashsahsahhsa",
             "atendimento": [
-                "Segunda-feira, 15:30",
-                "Terça-feira, 16:30"
+                {"dia":"Segunda-feira","hora":"15:30","data": "20/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"},
+                {"dia":"Terça-feira","hora":"16:30","data": "21/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"}
             ],
             "duracao": "60",
             "valor": 60.00, 
+            "qtdePSemana": "2",
             "nivelEscolar": "5º ano", 
             "idade": 18,
             "escola": "", 
@@ -113,11 +118,12 @@
             "nome": "Milan Godoi Frazão",
             "obs": "Tentando colocar um campo de obs para testar no app como vai ficar teste. sahsahashsahsahhsa",
             "atendimento": [
-                "Segunda-feira, 15:30",
-                "Terça-feira, 16:30"
+                {"dia":"Segunda-feira","hora":"15:30","data": "20/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"},
+                {"dia":"Terça-feira","hora":"16:30","data": "21/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"}
             ],
             "duracao": "60",
             "valor": 60.00, 
+            "qtdePSemana": "2",
             "nivelEscolar": "5º ano", 
             "idade": 18,
             "escola": "", 
@@ -131,11 +137,12 @@
             "nome": "Ezio Quintais Arouca",
             "obs": "Tentando colocar um campo de obs para testar no app como vai ficar teste. sahsahashsahsahhsa",
             "atendimento": [
-                "Segunda-feira, 15:30",
-                "Terça-feira, 16:30"
+                {"dia":"Segunda-feira","hora":"15:30","data": "20/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"},
+                {"dia":"Terça-feira","hora":"16:30","data": "21/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"}
             ],
             "duracao": "60",
             "valor": 60.00, 
+            "qtdePSemana": "2",
             "nivelEscolar": "5º ano", 
             "idade": 18,
             "escola": "", 
@@ -149,11 +156,12 @@
             "nome": "Albert Sacadura Moreno",
             "obs": "Tentando colocar um campo de obs para testar no app como vai ficar teste. sahsahashsahsahhsa",
             "atendimento": [
-                "Segunda-feira, 15:30",
-                "Terça-feira, 16:30"
+                {"dia":"Segunda-feira","hora":"15:30","data": "20/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"},
+                {"dia":"Terça-feira","hora":"16:30","data": "21/03/2021", "preco": "10.00", "duracao": "60", "pagamento": "Pedente", "cancelado": "Não"}
             ],
             "duracao": "60",
             "valor": 60.00, 
+            "qtdePSemana": "2",
             "nivelEscolar": "5º ano", 
             "idade": 18,
             "escola": "", 

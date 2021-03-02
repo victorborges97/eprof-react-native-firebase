@@ -30,9 +30,12 @@ function Alunos() {
     >
       <HomeStack.Screen name="Alunos" component={Dashboard} />
       <HomeStack.Screen name="Dados" component={DadosAluno} />
+      <HomeStack.Screen name="AulasAluno" component={DadosAluno} />
+      <HomeStack.Screen name="PagamentoAluno" component={DadosAluno} />
     </HomeStack.Navigator>
   );
 }
+
 
 const Tab = createBottomTabNavigator();
 

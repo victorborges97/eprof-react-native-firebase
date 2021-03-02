@@ -1,11 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, SafeAreaView, Linking } from 'react-native';
 
 import { colors } from "../../../config.json"
 import { data } from "../../../data.json"
-import Background from '../../components/Background';
+
+import {
+    ContainerDashboard
+} from "./styles"
 
 export default function Login({navigation}) {
+
+    const WhatsApp = (text) => {
+    let msg = `
+    Aluno(a): ${text.nome}
+
+    Obs: ${text.obs}
+
+    `
+    Linking.openURL(`whatsapp://send?text=${msg}`);
+    }
 
     const Aluno = ({ item }) => (
         <View style={styles.containerAluno}>
@@ -17,23 +30,34 @@ export default function Login({navigation}) {
                 <View style={styles.containerAluno__Header_horario}>
                     {
                         item.atendimento.map(ite => (
-                            <Text style={styles.containerAluno__Header_horario_texto}>{ite}</Text>
+                            <Text style={styles.containerAluno__Header_horario_texto}>{ite.dia+`, `+ite.hora}</Text>
                         ))
                     }
                 </View>
             </View>
             <View style={styles.containerAluno__Linha}></View>
             <View style={styles.containerAluno__Botoes}>
-                <TouchableOpacity onPress={() => navigation.navigate('Dados', { Item: item })} >
+                <TouchableOpacity 
+                    style={{padding: 3}}
+                    onPress={() => navigation.navigate('Dados', { Item: item })} >
                     <Text style={styles.containerAluno__Botoes_Botao_Texto}>DADOS</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    style={{padding: 3}}
+                    onPress={() => navigation.navigate('Dados', { Item: item })}
+                >
                     <Text style={styles.containerAluno__Botoes_Botao_Texto}>AULAS</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    style={{padding: 3}}
+                    onPress={() => navigation.navigate('Dados', { Item: item })}
+                >
                     <Text style={styles.containerAluno__Botoes_Botao_Texto}>PAGAMENTOS</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    style={{padding: 3}}
+                    onPress={() => WhatsApp(item)}
+                >
                     <Text style={styles.containerAluno__Botoes_Botao_Texto}>WHATSAPP</Text>
                 </TouchableOpacity>
             </View>
@@ -47,21 +71,21 @@ export default function Login({navigation}) {
       }} />
 
     return (
-        <Background>
+        <ContainerDashboard>
 
             <FlatList
-                style={{width: "100%", marginTop: -40}}
+                style={{width: "100%"}}
                 showsVerticalScrollIndicator={false}
                 ItemSeparatorComponent={ItemSeprator}
                 data={data}
                 contentContainerStyle={{
-                    padding: 10,
+                    paddingVertical: 5,
                 }}
                 keyExtractor={(item, index) => item.id.toString()}
                 renderItem={Aluno}
             />
 
-        </Background>
+        </ContainerDashboard>
     );
 }
 
@@ -102,7 +126,8 @@ const styles = StyleSheet.create({
         paddingEnd: 10,
     },
     containerAluno__Botoes_Botao_Texto: {
-        color: colors.card__aluno_link
+        color: colors.card__aluno_link,
+        textDecorationLine: "underline",
     },
     containerAluno__Header_horario: {
         flex: 1,
