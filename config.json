@@ -2,7 +2,7 @@
     "colors" : {
         "background": "#fff",
         "primary": "#8469F0",
-        "tab__bar_inative": "#DEDEDE",
+        "tab__bar_inative": "#FFFFFF38",
         "tab__bar_active": "#FFFFFF",
         "card__aluno_textoTitulo": "#636363",
         "card__aluno_link": "#828282",
